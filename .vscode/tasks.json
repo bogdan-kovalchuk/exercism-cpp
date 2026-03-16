@@ -1,0 +1,57 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Exercism: configure (pick exercise)",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "& C:\\Progra~2\\MICROS~2\\2022\\BUILDT~1\\Common7\\Tools\\Launch-VsDevShell.ps1 -Arch amd64 -HostArch amd64; Set-Location \"${workspaceFolder}\\${input:exercisePath}\"; cmake -S . -B build"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Exercism: configure all tests (pick exercise)",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "& C:\\Progra~2\\MICROS~2\\2022\\BUILDT~1\\Common7\\Tools\\Launch-VsDevShell.ps1 -Arch amd64 -HostArch amd64; Set-Location \"${workspaceFolder}\\${input:exercisePath}\"; cmake -S . -B build -DEXERCISM_RUN_ALL_TESTS=1"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Exercism: build (run tests) (pick exercise)",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "& C:\\Progra~2\\MICROS~2\\2022\\BUILDT~1\\Common7\\Tools\\Launch-VsDevShell.ps1 -Arch amd64 -HostArch amd64; Set-Location \"${workspaceFolder}\\${input:exercisePath}\"; cmake --build build"
+      ],
+      "dependsOn": "Exercism: configure all tests (pick exercise)",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "exercisePath",
+      "type": "promptString",
+      "description": "Path to exercise folder from workspace root (example: hello-world or cpp\\hello-world)",
+      "default": "hello-world"
+    }
+  ]
+}
