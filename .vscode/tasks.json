@@ -9,8 +9,10 @@
         "-NoProfile",
         "-ExecutionPolicy",
         "Bypass",
-        "-Command",
-        "& C:\\Progra~2\\MICROS~2\\2022\\BUILDT~1\\Common7\\Tools\\Launch-VsDevShell.ps1 -Arch amd64 -HostArch amd64; Set-Location \"${workspaceFolder}\\${input:exercisePath}\"; cmake -S . -B build"
+        "-File",
+        "${workspaceFolder}\\.vscode\\run-exercism-task.ps1",
+        "configure",
+        "${input:exercisePath}"
       ],
       "problemMatcher": []
     },
@@ -22,8 +24,10 @@
         "-NoProfile",
         "-ExecutionPolicy",
         "Bypass",
-        "-Command",
-        "& C:\\Progra~2\\MICROS~2\\2022\\BUILDT~1\\Common7\\Tools\\Launch-VsDevShell.ps1 -Arch amd64 -HostArch amd64; Set-Location \"${workspaceFolder}\\${input:exercisePath}\"; cmake -S . -B build -DEXERCISM_RUN_ALL_TESTS=1"
+        "-File",
+        "${workspaceFolder}\\.vscode\\run-exercism-task.ps1",
+        "configure-all-tests",
+        "${input:exercisePath}"
       ],
       "problemMatcher": []
     },
@@ -35,8 +39,10 @@
         "-NoProfile",
         "-ExecutionPolicy",
         "Bypass",
-        "-Command",
-        "& C:\\Progra~2\\MICROS~2\\2022\\BUILDT~1\\Common7\\Tools\\Launch-VsDevShell.ps1 -Arch amd64 -HostArch amd64; Set-Location \"${workspaceFolder}\\${input:exercisePath}\"; cmake --build build"
+        "-File",
+        "${workspaceFolder}\\.vscode\\run-exercism-task.ps1",
+        "build",
+        "${input:exercisePath}"
       ],
       "dependsOn": "Exercism: configure all tests (pick exercise)",
       "group": {
