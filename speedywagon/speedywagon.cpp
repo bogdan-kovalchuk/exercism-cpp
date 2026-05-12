@@ -1,5 +1,8 @@
 #include "speedywagon.h"
 
+#include <algorithm>
+#include <numeric>
+
 namespace speedywagon
 {
 
@@ -25,22 +28,19 @@ namespace speedywagon
         return sensor != nullptr && sensor->activity > 0;
     }
 
-    // Please don't change the interface of the uv_light_heuristic function
-    int uv_light_heuristic(std::vector<int> *data_array)
+    bool uv_alarm(pillar_men_sensor *sensor)
     {
-        double avg{};
-        for (auto element : *data_array)
-        {
-            avg += element;
-        }
-        avg /= data_array->size();
-        int uv_index{};
-        for (auto element : *data_array)
-        {
-            if (element > avg)
-                ++uv_index;
-        }
-        return uv_index;
+        return sensor != nullptr && uv_light_heuristic(&sensor->data) > sensor->activity;
+    }
+
+    // Please don't change the interface of the uv_light_heuristic function
+    int uv_light_heuristic(std::vector<int> *readings)
+    {
+        const auto sum = std::accumulate(readings->begin(), readings->end(), 0);
+        const auto average = static_cast<double>(sum) / readings->size();
+
+        return static_cast<int>(std::count_if(readings->begin(), readings->end(), [average](int reading)
+                                              { return reading > average; }));
     }
 
 } // namespace speedywagon
