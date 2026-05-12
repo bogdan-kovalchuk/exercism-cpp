@@ -20,6 +20,11 @@ namespace speedywagon
         return total_activity;
     }
 
+    bool alarm_control(pillar_men_sensor *sensor)
+    {
+        return sensor != nullptr && sensor->activity > 0;
+    }
+
     // Please don't change the interface of the uv_light_heuristic function
     int uv_light_heuristic(std::vector<int> *data_array)
     {
