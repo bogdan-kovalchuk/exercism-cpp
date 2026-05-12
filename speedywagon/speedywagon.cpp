@@ -5,10 +5,7 @@ namespace speedywagon
 
     bool connection_check(pillar_men_sensor *sensor)
     {
-        if (!sensor)
-            return true;
-            
-        return false;
+        return sensor != nullptr;
     }
 
     // Please don't change the interface of the uv_light_heuristic function
