@@ -27,4 +27,8 @@ namespace troy
 
     void give_new_artifact(human &person, std::string artifact_name);
 
+    void exchange_artifacts(
+        std::unique_ptr<artifact> &first_possession,
+        std::unique_ptr<artifact> &second_possession);
+
 } // namespace troy
