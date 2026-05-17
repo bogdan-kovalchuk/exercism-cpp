@@ -25,4 +25,6 @@ namespace troy
         std::shared_ptr<power> influenced_by = nullptr;
     };
 
+    void give_new_artifact(human &person, std::string artifact_name);
+
 } // namespace troy
