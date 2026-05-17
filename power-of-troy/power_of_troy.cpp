@@ -8,4 +8,11 @@ namespace troy
         person.possession = std::make_unique<artifact>(artifact_name);
     }
 
+    void exchange_artifacts(
+        std::unique_ptr<artifact> &first_possession,
+        std::unique_ptr<artifact> &second_possession)
+    {
+        std::swap(first_possession, second_possession);
+    }
+
 } // namespace troy
