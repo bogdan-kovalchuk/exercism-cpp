@@ -33,4 +33,6 @@ namespace troy
 
     void manifest_power(human &person, std::string power_effect);
 
+    void use_power(human &caster, human &target);
+
 } // namespace troy

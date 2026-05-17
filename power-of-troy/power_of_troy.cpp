@@ -20,4 +20,9 @@ namespace troy
         person.own_power = std::make_shared<power>(power_effect);
     }
 
+    void use_power(human &caster, human &target)
+    {
+        target.influenced_by = caster.own_power;
+    }
+
 } // namespace troy
