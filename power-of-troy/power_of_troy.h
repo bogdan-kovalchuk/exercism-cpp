@@ -35,4 +35,6 @@ namespace troy
 
     void use_power(human &caster, human &target);
 
+    int power_intensity(human &person);
+
 } // namespace troy
