@@ -31,4 +31,6 @@ namespace troy
         std::unique_ptr<artifact> &first_possession,
         std::unique_ptr<artifact> &second_possession);
 
+    void manifest_power(human &person, std::string power_effect);
+
 } // namespace troy
