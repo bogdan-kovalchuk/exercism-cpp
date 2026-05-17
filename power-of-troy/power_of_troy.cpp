@@ -15,4 +15,9 @@ namespace troy
         std::swap(first_possession, second_possession);
     }
 
+    void manifest_power(human &person, std::string power_effect)
+    {
+        person.own_power = std::make_shared<power>(power_effect);
+    }
+
 } // namespace troy
