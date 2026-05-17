@@ -25,4 +25,12 @@ namespace troy
         target.influenced_by = caster.own_power;
     }
 
+    int power_intensity(human &person)
+    {
+        if (!person.own_power)
+            return 0;
+
+        return static_cast<int>(person.own_power.use_count());
+    }
+
 } // namespace troy
