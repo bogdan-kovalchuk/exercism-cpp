@@ -2,6 +2,19 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Exercism: build debug executable (pick exercise)",
+      "type": "process",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "$exercise='${input:exercisePath}'; $vs='C:\\Progra~2\\MICROS~2\\2022\\BUILDT~1\\Common7\\Tools\\Launch-VsDevShell.ps1'; & $vs -Arch amd64 -HostArch amd64; Set-Location -LiteralPath '${workspaceFolder}\\${input:exercisePath}'; cmake -S . -B build -DEXERCISM_RUN_ALL_TESTS=1; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; cmake --build build --config Debug --target $exercise"
+      ],
+      "problemMatcher": []
+    },
+    {
       "label": "Exercism: configure (pick exercise)",
       "type": "process",
       "command": "powershell",
@@ -59,7 +72,7 @@
       "id": "exercisePath",
       "type": "promptString",
       "description": "Path to exercise folder from workspace root (example: hello-world or cpp\\hello-world)",
-      "default": "hello-world"
+      "default": "pangram"
     }
   ]
 }

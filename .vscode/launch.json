@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Exercism exercise tests",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}\\${input:exercisePath}\\build\\Debug\\${input:exercisePath}.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}\\${input:exercisePath}",
+      "environment": [],
+      "console": "integratedTerminal",
+      "preLaunchTask": "Exercism: build debug executable (pick exercise)"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "exercisePath",
+      "type": "promptString",
+      "description": "Exercise folder name from workspace root, for example: pangram, raindrops, reverse-string",
+      "default": "pangram"
+    }
+  ]
+}
