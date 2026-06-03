@@ -1,7 +1,23 @@
 #pragma once
 
-namespace grade_school {
+#include <map>
+#include <string>
+#include <vector>
 
-// TODO: add your solution here
+namespace grade_school
+{
+    class school
+    {
+    public:
+        using students_type = std::vector<std::string>;
+        using roster_type = std::map<int, students_type>;
 
-}  // namespace grade_school
+        void add(std::string name, int grade);
+        roster_type roster() const;
+        students_type grade(int grade_number) const;
+
+    private:
+        roster_type students_;
+    };
+
+} // namespace grade_school
