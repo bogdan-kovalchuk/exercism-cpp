@@ -1,7 +1,8 @@
 #pragma once
 
-namespace hamming {
+#include <string>
 
-// TODO: add your solution here
-
-}  // namespace hamming
+namespace hamming
+{
+    int compute(const std::string &first, const std::string &second);
+}
