@@ -1,7 +1,7 @@
 #pragma once
 
-namespace collatz_conjecture {
+namespace collatz_conjecture
+{
+    int steps(int n);
 
-// TODO: add your solution here
-
-}  // namespace collatz_conjecture
+} // namespace collatz_conjecture
